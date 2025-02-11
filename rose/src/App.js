@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import rose from "./Rose.js"
+import Rose3D from "./Rose.js"
 
 function App() {
   return (
-    <div className = "App">
-      <rose />
+    <div>
+      <h1>Hellow from app component!</h1>
+      <Rose3D />
     </div>
-  
   );
 }
 
