@@ -26,13 +26,31 @@ export default function Rose3D()
         
         mountRef.current.appendChild(renderer.domElement);
 
-        const geometry = new THREE.BoxGeometry(1,1,1); //(width, height, depth)
-        const material = new THREE.LineBasicMaterial({color : 0x00ff00}); //should be a bright green box
-        console.log('cube is created...');
-    
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube); //should add the cube to the scene
-        console.log('cube should be visible...');
+        // const geometry = new THREE.BoxGeometry(1,1,1); //(width, height, depth)
+        // const material = new THREE.LineBasicMaterial({color : 0x00ff00}); //should be a bright green box
+        // console.log('cube is created...');
+        // const cube = new THREE.Mesh(geometry, material);
+        // scene.add(cube); //should add the cube to the scene
+        // console.log('cube should be visible...');
+
+        const stemGeometry = new THREE.CylinderGeometry(0.05, 0.04, 3, 32);
+        const stemMaterial = new THREE.MeshBasicMaterial({color: 0x228B22});
+        const stem = new THREE.Mesh(stemGeometry, stemMaterial);
+        scene.add(stem);
+
+        function generatePetal()
+        {
+            // const petalGeometry 
+            // const petalMaterial 
+            // const petal 
+
+        }
+        for (let i = 0; i < 8; i++)
+        {
+            const petal = generatePetal();
+
+        }
+        stem.rotation.z += 2;
         function animate()
         {
             // cube.rotation.x += 0.01;
