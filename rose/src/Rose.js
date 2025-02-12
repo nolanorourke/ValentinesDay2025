@@ -19,7 +19,7 @@ export default function Rose3D()
         const camera = new THREE.PerspectiveCamera(75,
             window.innerWidth / window.innerHeight,1,500);
         const controls = new OrbitControls( camera, renderer.domElement);
-        camera.position.set(0,0,3);
+        camera.position.set(0,0,100);
         controls.update();
         camera.lookAt(0,0,0);
         console.log('camera is created...');
@@ -36,6 +36,7 @@ export default function Rose3D()
         const stemGeometry = new THREE.CylinderGeometry(0.05, 0.04, 3, 32);
         const stemMaterial = new THREE.MeshBasicMaterial({color: 0x299B29, side: THREE.DoubleSide});
         const stem = new THREE.Mesh(stemGeometry, stemMaterial);
+        stem.rotation.z += 2;
         //scene.add(stem);
 
         // function generatePetal()
@@ -63,7 +64,6 @@ export default function Rose3D()
         //     const petal = generatePetal();
 
         // }
-        stem.rotation.z += 2;
         function animate()
         {
             // cube.rotation.x += 0.01;
