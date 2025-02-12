@@ -34,22 +34,24 @@ export default function Rose3D()
         // console.log('cube should be visible...');
 
         const stemGeometry = new THREE.CylinderGeometry(0.05, 0.04, 3, 32);
-        const stemMaterial = new THREE.MeshBasicMaterial({color: 0x228B22});
+        const stemMaterial = new THREE.MeshBasicMaterial({color: 0x299B29, side: THREE.DoubleSide});
         const stem = new THREE.Mesh(stemGeometry, stemMaterial);
-        scene.add(stem);
+        //scene.add(stem);
 
-        function generatePetal()
-        {
-            // const petalGeometry 
-            // const petalMaterial 
-            // const petal 
+        // function generatePetal()
+        // {
+             const x = 0, y = 0;
+             const petalGeometry = new THREE.PlaneGeometry(0.5, 1, 32, 32);
+             const petalMaterial = new THREE.MeshBasicMaterial({color: 0xFF003F, side: THREE.DoubleSide});
+             const petal = new THREE.Mesh(petalGeometry, petalMaterial);
+             scene.add(petal);
 
-        }
-        for (let i = 0; i < 8; i++)
-        {
-            const petal = generatePetal();
+        // }
+        // for (let i = 0; i < 8; i++)
+        // {
+        //     const petal = generatePetal();
 
-        }
+        // }
         stem.rotation.z += 2;
         function animate()
         {
