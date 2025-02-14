@@ -33,33 +33,42 @@ export default function Rose3D()
         // scene.add(cube); //should add the cube to the scene
         // console.log('cube should be visible...');
 
-        const stemGeometry = new THREE.CylinderGeometry(0.05, 0.04, 3, 32);
+        const stemGeometry = new THREE.CylinderGeometry(0.7, 1, 60, 640);
         const stemMaterial = new THREE.MeshBasicMaterial({color: 0x299B29, side: THREE.DoubleSide});
         const stem = new THREE.Mesh(stemGeometry, stemMaterial);
-        stem.rotation.z += 2;
-        //scene.add(stem);
+        
+        scene.add(stem);
 
-        // function generatePetal()
+        // function generatePetal(angle)
         // {
             const x = 0, y = 0;
             const petalShape = new THREE.Shape();
             petalShape.moveTo(x+5, y+5);
-            petalShape.bezierCurveTo( x + 5, y + 5, x + 4, y, x, y );
-            petalShape.bezierCurveTo( x - 6, y, x - 6, y + 7,x - 6, y + 7 );
-            petalShape.bezierCurveTo( x - 6, y + 11, x - 3, y + 15.4, x + 5, y + 19 );
-            petalShape.bezierCurveTo( x + 12, y + 15.4, x + 16, y + 11, x + 16, y + 7 );
-            petalShape.bezierCurveTo( x + 16, y + 7, x + 16, y, x + 10, y );
-            petalShape.bezierCurveTo( x + 7, y, x + 5, y + 5, x + 5, y + 5 );
+            // petalShape.bezierCurveTo( x + 5, y + 5, x + 4, y, x, y );
+            // petalShape.bezierCurveTo( x - 6, y, x - 6, y + 7,x - 6, y + 7 );
+            // petalShape.bezierCurveTo( x - 6, y + 11, x - 3, y + 15.4, x + 5, y + 19 );
+            // petalShape.bezierCurveTo( x + 12, y + 15.4, x + 16, y + 11, x + 16, y + 7 );
+            // petalShape.bezierCurveTo( x + 16, y + 7, x + 16, y, x + 10, y );
+            // petalShape.bezierCurveTo( x + 7, y, x + 5, y + 5, x + 5, y + 5 );
+            petalShape.bezierCurveTo( x - 5, y - 5, x - 4, y, x, y );
+            petalShape.bezierCurveTo( x + 6, y, x + 6, y - 7,x + 6, y - 7 );
+            petalShape.bezierCurveTo( x + 6, y - 11, x + 3, y - 15.4, x - 5, y - 19 );
+            petalShape.bezierCurveTo( x - 12, y - 15.4, x - 16, y - 11, x - 16, y - 7 );
+            petalShape.bezierCurveTo( x - 16, y - 7, x - 16, y, x - 10, y );
+            petalShape.bezierCurveTo( x - 7, y, x - 5, y - 5, x + 5, y + 5 );
             const petalGeometry = new THREE.ShapeGeometry(petalShape);
             const petalMaterial = new THREE.MeshBasicMaterial({color: 0xFF003F, side: THREE.DoubleSide });
             const petal = new THREE.Mesh(petalGeometry, petalMaterial);
+
+            petal.position.set(4.6, 47,1);
             //  const petalGeometry = new THREE.PlaneGeometry(0.5, 1, 32, 32);
             //  const petalMaterial = new THREE.MeshBasicMaterial({color: 0xFF003F, side: THREE.DoubleSide});
             //  const petal = new THREE.Mesh(petalGeometry, petalMaterial);
             scene.add(petal);
 
         // }
-        // for (let i = 0; i < 8; i++)
+        const petalAmount = 6
+        // for (let i = 0; i < petalAmount; i++)
         // {
         //     const petal = generatePetal();
 
