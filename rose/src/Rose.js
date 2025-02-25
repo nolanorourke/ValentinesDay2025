@@ -112,7 +112,7 @@ export default function Rose3D()
             renderer.render(scene,camera);
             //petal.rotation.z+= .1;
             //petal.rotation.x+= .1;
-            petal.rotation.y+= .1;
+            //petal.rotation.y+= .1;
 
         }
         animate();
