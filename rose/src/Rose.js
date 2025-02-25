@@ -26,11 +26,13 @@ export default function Rose3D()
         
         mountRef.current.appendChild(renderer.domElement);
 
+        //this is the stem info, the geomtry is the dimensions, material is the colo, mesh them together, add to the scene
         const stemGeometry = new THREE.CylinderGeometry(1, 1.5, 100, 700);
         const stemMaterial = new THREE.MeshBasicMaterial({color: 0x299B29, side: THREE.DoubleSide});
         const stem = new THREE.Mesh(stemGeometry, stemMaterial);
-        
         scene.add(stem);
+
+
         function animate()
         {
             // cube.rotation.x += 0.01;
