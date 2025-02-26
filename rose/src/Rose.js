@@ -30,9 +30,19 @@ export default function Rose3D()
         const stemGeometry = new THREE.CylinderGeometry(1, 1.5, 100, 700);
         const stemMaterial = new THREE.MeshBasicMaterial({color: 0x299B29, side: THREE.DoubleSide});
         const stem = new THREE.Mesh(stemGeometry, stemMaterial);
-        scene.add(stem);
+        //scene.add(stem);
 
+        /*
+            what i want to do is create a shape, 
+        */
 
+        //this is going to be the heart / petal
+        const points = new THREE.Vector2();
+        const petalGeometry = new THREE.LatheGeometry(points);
+        const petalMaterial = new THREE.MeshBasicMaterial({color: 0xffff00});
+        const petal = new THREE.Mesh(petalGeometry, petalMaterial);
+        scene.add(petal);
+        
         function animate()
         {
             // cube.rotation.x += 0.01;
@@ -40,9 +50,6 @@ export default function Rose3D()
             requestAnimationFrame(animate);
             controls.update();
             renderer.render(scene,camera);
-            //petal.rotation.z+= .1;
-            //petal.rotation.x+= .1;
-            //petal.rotation.y+= .1;
 
         }
         animate();
