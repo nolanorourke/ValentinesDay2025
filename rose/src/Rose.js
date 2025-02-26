@@ -30,18 +30,33 @@ export default function Rose3D()
         const stemGeometry = new THREE.CylinderGeometry(1, 1.5, 100, 700);
         const stemMaterial = new THREE.MeshBasicMaterial({color: 0x299B29, side: THREE.DoubleSide});
         const stem = new THREE.Mesh(stemGeometry, stemMaterial);
-        //scene.add(stem);
+        stem.position.y -= 59
+        scene.add(stem);
 
         /*
             what i want to do is create a shape, 
         */
 
         //this is going to be the heart / petal
-        const points = new THREE.Vector2();
-        const petalGeometry = new THREE.LatheGeometry(points);
-        const petalMaterial = new THREE.MeshBasicMaterial({color: 0xffff00});
+        function createPetal(scale)
+        {
+            const points = [];
+            for ( let i = 0; i < 10; i ++ ) {
+                points.push( new THREE.Vector2( Math.sin( i * 0.2 ) * 10 , ( i - 5 ) * 2 ).addScalar(scale) );
+            }
+            return points
+        }
+
+        const petalGeometry = new THREE.LatheGeometry(createPetal(1));
+        const petalMaterial = new THREE.MeshBasicMaterial({color: 0xff0000, side: THREE.DoubleSide});
         const petal = new THREE.Mesh(petalGeometry, petalMaterial);
+        const petal2 = new THREE.Mesh(new THREE.LatheGeometry(createPetal(-1)), new THREE.MeshBasicMaterial({color: 0x00ff00, side: THREE.DoubleSide}))
+        const petal3 = new THREE.Mesh(new THREE.LatheGeometry(createPetal(2)), new THREE.MeshBasicMaterial({color: 0x0000ff, side: THREE.DoubleSide}))
+
         scene.add(petal);
+        scene.add(petal2);
+        scene.add(petal3);
+
         
         function animate()
         {
