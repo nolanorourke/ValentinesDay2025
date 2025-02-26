@@ -48,7 +48,7 @@ export default function Rose3D()
         }
 
         const petalGeometry = new THREE.LatheGeometry(createPetal(1));
-        const petalMaterial = new THREE.MeshBasicMaterial({color: 0xff0000, side: THREE.DoubleSide});
+        const petalMaterial = new THREE.MeshNormalMaterial({color: 0xff0000, side: THREE.DoubleSide});
         const petal = new THREE.Mesh(petalGeometry, petalMaterial);
         const petal2 = new THREE.Mesh(new THREE.LatheGeometry(createPetal(-1)), new THREE.MeshBasicMaterial({color: 0x00ff00, side: THREE.DoubleSide}))
         const petal3 = new THREE.Mesh(new THREE.LatheGeometry(createPetal(2)), new THREE.MeshBasicMaterial({color: 0x0000ff, side: THREE.DoubleSide}))
